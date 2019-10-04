@@ -2,8 +2,8 @@
 import socket
 import sys
 
-def FullPorts():
-    print("Portas: 1 - 65535")
+def full_ports():
+    print("Ports: 1 - 65535")
     print("\nPort  |  STATUS")
     for porta in range(1, 65535):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -12,12 +12,12 @@ def FullPorts():
         if (code == 0):
             print("{}     OPEN".format(porta))
             sock.close()
-    print("\nEscaneamento Completo!")
+    print("\nThe port scan has been completed!")
     sys.exit()
 
-def FaixaPorts():
-    port1 = int(input("Inicio: "))
-    port2 = int(input("Final: "))
+def set_ports():
+    port1 = int(input("Begin: "))
+    port2 = int(input("end: "))
     print("-" * 30)
     print("\nPort |  STATUS")
     for porta in range(port1, port2):
@@ -27,11 +27,11 @@ def FaixaPorts():
         if (code == 0):
             print("{}     OPEN".format(porta))
             sock.close()
-    print("\nEscaneamento Completo!")
+    print("\nThe port scan has been completed!")
     sys.exit()
 
-def EtapaPorts():
-        print("ETAPA 1/3: 1 - 1024")
+def stage_ports():
+        print("STAGE 1/3: 1 - 1024")
         print("-" * 60)
         print("\nPort  |  STATUS")
         for porta in range(1, 65535):
@@ -42,33 +42,33 @@ def EtapaPorts():
                 print("{}     OPEN".format(porta))
                 sock.close()
             if porta == 1024:
-                i = str(input("\nDeseja continuar o PortScan? (Y/N) "))
-                while i != "Y" and i != "N":
-                    i = str(input("\nOpção invalida, por gentileza, digite novamente sua opção" +
-                                  "\nDeseja continuar o PortScan? (Y/N) "))
-                if i == "N":
-                    print("\nEscaneamento Completo!")
+                i = str(input("\nDo you want to continue port scanning? (Y/N) "))
+                while i.upper() != "Y" and i.upper() != "N":
+                    i = str(input("\nInvalid option, please re-enter your choice!" +
+                                  "\nDo you want to continue port scanning? (Y/N) "))
+                if i.upper() == "N":
+                    print("\nThe port scan has been completed!!")
                     sys.exit()
                 else:
                     print("-" * 60)
-                    print("ETAPA 2/4: 1025 - 20567")
+                    print("STAGE 2/3: 1025 - 20567")
                     print("-" * 60)
                     print("\nPort  |  STATUS")
 
             if porta == 20567:
-                i = str(input("\nDeseja continuar o PortScan? (Y/N) "))
-                while i != "Y" and i != "N":
-                    i = str(input("\n Opção invalida, por gentileza, digite novamente sua opção" +
-                                  "\nDeseja continuar o PortScan? (Y/N) "))
-                if i == "N":
-                    print("\nEscaneamento Completo!")
+                i = str(input("\nDo you want to continue port scanning? (Y/N) "))
+                while i.upper() != "Y" and i.upper() != "N":
+                    i = str(input("\nInvalid option, please re-enter your choice!" +
+                                  "\nDo you want to continue port scanning? (Y/N) "))
+                if i.upper() == "N":
+                    print("\nThe port scan has been completed!!")
                     sys.exit()
                 else:
                     print("-" * 60)
-                    print("ETAPA 3/3: 20567 - 65535")
+                    print("STAGE 3/3: 20567 - 65535")
                     print("-" * 60)
                     print("\nPort  |  STATUS")
-        print("\nEscaneamento Completo!")
+        print("\nThe port scan has been completed!!")
         sys.exit()
 try:
     print("-" * 60)
@@ -76,19 +76,19 @@ try:
     ip = socket.gethostbyname(scan)
     print("Wait... scanned ports on host: ", ip)
     print("-" * 60)
-    i = str(input("OPCOES DO PORTSCAN" +
-                  "\n1 - Para scanear todas as portas possiveis " +
-                  "\n2 - Para definir uma faixa de portas"
-                  "\n3 - Para scanear por etapas "
-                  "\nDigite sua opçao: "))
+    i = str(input("Port Scanning - Menu" +
+                  "\n\n1 - To scan all possible ports " +
+                  "\n2 - To set a port range "
+                  "\n3 - To scan step by step "
+                  "\n\nEnter your option:  "))
     print("-" * 60)
     if i == "1":
-        FullPorts()
+        full_ports()
     elif i == "2":
-        FaixaPorts()
+        set_ports()
     elif i == "3":
-        EtapaPorts()
-    else: print("Opção invalida")
+        stage_ports()
+    else: print("invalid option. Exiting...")
 
 except socket.gaierror:
     print('\n\nHostname could not be resolved. Exiting')
