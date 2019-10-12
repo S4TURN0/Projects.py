@@ -11,7 +11,7 @@ else:
     sys.exit()
 try:
     while True:
-        r =requests.post(url)
+        r =requests.get(url)
         print(r)
 except Exception:
     print ("Can't find the hostname or port especified")
