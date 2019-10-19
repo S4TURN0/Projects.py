@@ -107,7 +107,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+PyTests/
 # Spyder project settings
 .spyderproject
 .spyproject
