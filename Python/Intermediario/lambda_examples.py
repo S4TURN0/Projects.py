@@ -1,4 +1,6 @@
-contador_Letras = lambda lista : [len(x) for x in lista]
+"""
+Faça uma calculadora simples que utilize funções lambdas
+"""
 
 calculadora = {
     'soma': lambda a,b:a+b,

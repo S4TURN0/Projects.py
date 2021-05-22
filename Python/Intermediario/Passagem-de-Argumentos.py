@@ -1,5 +1,8 @@
-import sys
+"""
+Faça um programa simples de soma e subtração que utilize "argv" como entrada de dados
+"""
 
+import sys
 
 argumentos = []
 
