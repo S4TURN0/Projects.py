@@ -17,12 +17,6 @@ for time in times:
         max_gols = time['gols']
         time_max_gols = time['time']
 
-        a = max_gols
-        print(a)
-        if a < time['gols']:
-            min_gols = a
-            print(min_gols)
-
     if max_derrotas < time['derrotas']:
         max_derrotas = time['derrotas']
         time_max_derrotas = time['time']
