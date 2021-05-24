@@ -17,6 +17,12 @@ for time in times:
         max_gols = time['gols']
         time_max_gols = time['time']
 
+        a = max_gols
+        print(a)
+        if a < time['gols']:
+            min_gols = a
+            print(min_gols)
+
     if max_derrotas < time['derrotas']:
         max_derrotas = time['derrotas']
         time_max_derrotas = time['time']
@@ -36,5 +42,5 @@ for time in times:
 print("""Máximo de Gols ==> Time: {} Gols: {}
 Mínimo de Gols ==> Time: {} Gols: {}""".format(time_max_gols,max_gols,time_min_gols,min_gols,))
 
-print("""\nMáximo de derrotas ==> Time: {} Gols: {}
+print("""\nMáximo de derrotas ==> Time: {} derrotas: {}
 Mínimo de derrotas ==> Time: {} derrotas: {}""".format(time_max_derrotas,max_derrotas,time_min_derrotas,min_derrotas))
